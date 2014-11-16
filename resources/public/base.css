@@ -1,0 +1,38 @@
+#content {
+  padding-top: 80px;
+}
+
+.venue {
+  position: absolute;
+  z-index: 10;
+  margin-top:5px;
+  padding-left: 10px;
+  font-weight: bold;
+}
+
+.venue a {
+  color:white;
+}
+
+.venue a:hover {
+  color:white;
+  text-decoration: none;
+}
+
+img.mary {
+  cursor: pointer;
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  filter: grayscale(100%);
+
+  -webkit-transition: 0.1s -webkit-filter linear;
+  -moz-transition: 0.1s -moz-filter linear;
+  -o-transition: 0.1s -o-filter linear;
+  transition: 0.1s -webkit-filter linear;
+}
+
+img.mary:hover {
+  -webkit-filter: grayscale(10%);
+  -moz-filter: grayscale(10%);
+  filter: grayscale(10%);
+}

@@ -1,0 +1,8 @@
+pom.xml
+*jar
+lib
+classes
+log/*
+target
+logfile
+/pg/
