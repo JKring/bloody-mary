@@ -2,7 +2,7 @@
   (:require [clojure.java.jdbc :as sql]
             [clojure.string :as string]))
 
-(def spec (or (System/getenv "DATABASE_URL")
+(def spec (or (System/getenv "HEROKU_POSTGRESQL_COPPER_URL")
               "postgresql://localhost:5432/bloody-mary"))
 
 (defn all []
