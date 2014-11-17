@@ -27,7 +27,6 @@
         [:created_at :timestamp "NOT NULL" "DEFAULT CURRENT_TIMESTAMP"]))
     (println " done")))
 
-
 ; DROP TABLE
 ; (ns bloody-mary.models.migration
 ;   (:require [clojure.java.jdbc :as sql]

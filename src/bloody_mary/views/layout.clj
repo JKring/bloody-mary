@@ -12,7 +12,7 @@
     [:meta {:name "description" :content "On a lifelong journey to find the best Bloody Mary in Oakland."}]
     [:meta {:name "keywords"
       :content (str title ",Bloody Mary,Oakland,Best Bloody Mary in Oakland,Bloody Mary Review")}]
-    [:meta {:name="author" :content "Jake Kring"}]
+    [:meta {:name "author" :content "Jake Kring"}]
     [:title title]
     (include-css "/base.css")
     (include-css "/bootstrap.min.css")
