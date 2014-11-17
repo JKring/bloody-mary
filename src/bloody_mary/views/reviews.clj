@@ -63,7 +63,7 @@
       [:div {:class "col-sm-6"}
         [:h1 (h (:venue review))]
         [:h3 (h (:title review))]
-        [:p (h (:story review))]]
+        (:story review)]
       [:div {:class "col-sm-3"}
         (all-score-cards review)]]))
 
