@@ -5,11 +5,11 @@
 
 (defn total-score [review]
   (+
-      (:rim_score review)
-      (:garnish_score review)
-      (:spice_score review)
-      (:booze_score review)
-      (:mouthfeel_score review)))
+    (:rim_score review)
+    (:garnish_score review)
+    (:spice_score review)
+    (:booze_score review)
+    (:mouthfeel_score review)))
 
 (defn percent-score [review]
   (* 4 (total-score review)))
