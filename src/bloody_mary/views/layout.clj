@@ -12,6 +12,7 @@
     [:title title]
     (include-css "/base.css")
     (include-css "/bootstrap.min.css")
+    (include-css "http://fonts.googleapis.com/css?family=Arvo")
     (javascript-tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js")]
    [:body
     [:div {:class "navbar"}
@@ -19,7 +20,11 @@
         [:div {:class "navbar-header"}
           [:a {:class "navbar-brand" :href "/"}
           [:img { :class "logo" :src "../logo.png"}]]]]]
-    [:div {:id "content" :class "container"} body]]))
+    [:div {:id "content" :class "container"} body]
+    [:div {:class "footer"}
+      [:p
+        [:a {:href "https://github.com/jkring/bloody-mary"}
+          [:span "⚒  "] " in Oakland"]]]]))
 
 (defn four-oh-four []
   (common "Page Not Found"

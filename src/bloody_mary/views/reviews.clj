@@ -20,22 +20,23 @@
              :style (str "width:" percent "%")} "&nbsp;"]
       [:div {:class "percent-score-mask"}]])
 
-(defn score-card-for-score [metric]
-  [:div
-    [:h5 (:text metric)]
+(defn score-card-for-metric [metric]
+  [:div {:class "metric"}
+    [:h4 (:text metric)]
+    [:h5 (:description metric)]
     (score-card (* 20 (:score metric)))])
 
 (defn all-score-cards [review]
-  (map score-card-for-score [
-    {:text "Rim" :score (:rim_score review)}
-    {:text "Garnish" :score (:garnish_score review)}
-    {:text "Spice" :score (:spice_score review)}
-    {:text "Booze" :score (:booze_score review)}
-    {:text "Mouthfeel" :score (:mouthfeel_score review)}
+  (map score-card-for-metric [
+    {:text "Rim" :description "Keep turning that glass" :score (:rim_score review)}
+    {:text "Garnish" :description "How pickled are the pickles?" :score (:garnish_score review)}
+    {:text "Spice" :description "Grams of Horseradish per Glass" :score (:spice_score review)}
+    {:text "Booze" :description "An objective measure of BAC" :score (:booze_score review)}
+    {:text "Mouthfeel" :description "The thicker & chunkier the better" :score (:mouthfeel_score review)}
   ]))
 
 (defn display-review [review]
-  [:div {:class "col-sm-4"}
+  [:div {:class "col-sm-3"}
     [:a {:href (h (:slug review))}
       [:img {:src (h (:photo_url review))
              :class "img-responsive mary"}]]
@@ -54,16 +55,16 @@
     (display-reviews reviews)))
 
 (defn show [review]
-  (layout/common (h (:venue review))
+  (layout/common (h (str (:venue review) " Bloody Mary"))
     [:div {:class "row"}
-      [:div {:class "col-sm-4"}
+      [:div {:class "col-sm-3"}
         [:img {:src (h (:photo_url review))
                :class "img-responsive"}]]
       [:div {:class "col-sm-6"}
         [:h1 (h (:venue review))]
         [:h3 (h (:title review))]
         [:p (h (:story review))]]
-      [:div {:class "col-sm-2"}
+      [:div {:class "col-sm-3"}
         (all-score-cards review)]]))
 
 (defn form-group [name text field]
