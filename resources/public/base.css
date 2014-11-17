@@ -7,19 +7,32 @@
 }
 
 .venue {
-  position: absolute;
-  z-index: 10;
-  margin-top:5px;
-  padding-left: 10px;
   font-weight: bold;
 }
 
+.percent-score-holder {
+  height:100px;
+  background: url(simple-logo.png);
+  background-size: 20%;
+  background-repeat: repeat-x;
+}
+
+.percent-score {
+  float:left;
+}
+
+.percent-score-mask {
+  height:100%;
+  background:white;
+  overflow:hidden
+}
+
 .venue a {
-  color:white;
+  color:black;
 }
 
 .venue a:hover {
-  color:white;
+  color:black;
   text-decoration: none;
 }
 

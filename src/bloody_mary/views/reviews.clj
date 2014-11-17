@@ -3,12 +3,29 @@
         [hiccup.form :as form])
   (:require [bloody-mary.views.layout :as layout]))
 
+(defn total-score [review]
+  (+
+      (:rim_score review)
+      (:garnish_score review)
+      (:spice_score review)
+      (:booze_score review)
+      (:mouthfeel_score review)))
+
+(defn percent-score [review]
+  (* 4 (total-score review)))
+
 (defn display-review [review]
   [:div {:class "col-sm-4"}
-        [:h2 {:class "venue"}
-          [:a {:href (h (:slug review))} (h (:venue review))]]
-        [:a {:href (h (:slug review))}
-          [:img {:src (h (:photo_url review)) :class "img-responsive mary"}]]])
+    [:a {:href (h (:slug review))}
+      [:img {:src (h (:photo_url review)) :class "img-responsive mary"}]]
+    [:h4 {:class "venue"}
+      [:a {:href (h (:slug review))}
+        (h (:venue review))
+        [:small (str " " (total-score review) "/25")]]]
+    [:div {:class "percent-score-holder"}
+      [:div {:class "percent-score"
+             :style (str "width:" (percent-score review) "%")} "&nbsp;"]
+      [:div {:class "percent-score-mask"}]]])
 
 (defn display-reviews [reviews]
   [:div {:class "row"}
