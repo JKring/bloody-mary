@@ -14,6 +14,12 @@
 (defn percent-score [review]
   (* 4 (total-score review)))
 
+(defn score-card [percent]
+  [:div {:class "percent-score-holder"}
+      [:div {:class "percent-score"
+             :style (str "width:" percent "%")} "&nbsp;"]
+      [:div {:class "percent-score-mask"}]])
+
 (defn display-review [review]
   [:div {:class "col-sm-4"}
     [:a {:href (h (:slug review))}
@@ -22,10 +28,7 @@
       [:a {:href (h (:slug review))}
         (h (:venue review))
         [:small (str " " (total-score review) "/25")]]]
-    [:div {:class "percent-score-holder"}
-      [:div {:class "percent-score"
-             :style (str "width:" (percent-score review) "%")} "&nbsp;"]
-      [:div {:class "percent-score-mask"}]]])
+    (score-card (percent-score review))])
 
 (defn display-reviews [reviews]
   [:div {:class "row"}
