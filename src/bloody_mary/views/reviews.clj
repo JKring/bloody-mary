@@ -20,14 +20,29 @@
              :style (str "width:" percent "%")} "&nbsp;"]
       [:div {:class "percent-score-mask"}]])
 
+(defn score-card-for-score [metric]
+  [:div
+    [:h5 (:text metric)]
+    (score-card (* 20 (:score metric)))])
+
+(defn all-score-cards [review]
+  (map score-card-for-score [
+    {:text "Rim" :score (:rim_score review)}
+    {:text "Garnish" :score (:garnish_score review)}
+    {:text "Spice" :score (:spice_score review)}
+    {:text "Booze" :score (:booze_score review)}
+    {:text "Mouthfeel" :score (:mouthfeel_score review)}
+  ]))
+
 (defn display-review [review]
   [:div {:class "col-sm-4"}
     [:a {:href (h (:slug review))}
-      [:img {:src (h (:photo_url review)) :class "img-responsive mary"}]]
+      [:img {:src (h (:photo_url review))
+             :class "img-responsive mary"}]]
     [:h4 {:class "venue"}
       [:a {:href (h (:slug review))}
-        (h (:venue review))
-        [:small (str " " (total-score review) "/25")]]]
+        (h (:venue review))]]
+    [:h5 (h (:title review))]
     (score-card (percent-score review))])
 
 (defn display-reviews [reviews]
@@ -41,10 +56,15 @@
 (defn show [review]
   (layout/common (h (:venue review))
     [:div {:class "row"}
-      (display-review review)
-      [:div {:class "col-sm-8"}
-        [:h1 (h (:title review))]
-        [:p (h (:story review))]]]))
+      [:div {:class "col-sm-4"}
+        [:img {:src (h (:photo_url review))
+               :class "img-responsive"}]]
+      [:div {:class "col-sm-6"}
+        [:h1 (h (:venue review))]
+        [:h3 (h (:title review))]
+        [:p (h (:story review))]]
+      [:div {:class "col-sm-2"}
+        (all-score-cards review)]]))
 
 (defn form-group [name text field]
   [:div {:class "form-group"}

@@ -8,14 +8,21 @@
 
 .venue {
   font-weight: bold;
+  margin-top:20px;
 }
 
 .percent-score-holder {
-  height:100px;
+  height:120px;
+  margin-top:20px;
   background: url(simple-logo.png);
   background-size: 20%;
   background-repeat: repeat-x;
 }
+
+.col-sm-2 .percent-score-holder {
+  height:40px;
+}
+
 
 .percent-score {
   float:left;
