@@ -7,12 +7,17 @@
   width:200px;
 }
 
+p {
+  font-size: 20px !important;
+}
+
 a {
   color:#3B8F36 !important;
 }
 
 a:hover {
-  text-decoration: none;
+  color: #1B6F16 !important;
+  text-decoration: none !important;
 }
 
 h1, h4 {
@@ -80,18 +85,6 @@ img.mary:hover {
   margin:0px;
 }
 
-.footer p a {
-  font-size:24px;
-}
-
-.footer p a {
-  font-weight:bold;
-}
-
-.footer p a:hover {
-  text-decoration: none
-}
-
 .footer p a span {
-  font-size:28px;
+  font-size:24px;
 }

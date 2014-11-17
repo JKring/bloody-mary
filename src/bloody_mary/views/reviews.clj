@@ -43,7 +43,7 @@
     [:h4 {:class "venue"}
       [:a {:href (h (:slug review))}
         (h (:venue review))]]
-    [:h5 (h (:title review))]
+    [:h5 [:a {:href (:slug review)} (h (:title review))]]
     (score-card (percent-score review))])
 
 (defn display-reviews [reviews]
