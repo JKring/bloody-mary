@@ -14,10 +14,11 @@
     (include-css "/bootstrap.min.css")
     (javascript-tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js")]
    [:body
-    [:div {:class "navbar navbar-fixed-top"}
+    [:div {:class "navbar"}
       [:div {:class "container"}
         [:div {:class "navbar-header"}
-          [:a {:class "navbar-brand" :href "/"} "Oakland Bloody Mary"]]]]
+          [:a {:class "navbar-brand" :href "/"}
+          [:img { :class "logo" :src "../logo.png"}]]]]]
     [:div {:id "content" :class "container"} body]]))
 
 (defn four-oh-four []

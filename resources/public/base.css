@@ -2,6 +2,10 @@
   padding-top: 80px;
 }
 
+.logo {
+  width:200px;
+}
+
 .venue {
   position: absolute;
   z-index: 10;

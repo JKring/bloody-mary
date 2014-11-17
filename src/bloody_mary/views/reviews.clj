@@ -12,7 +12,7 @@
 
 (defn display-reviews [reviews]
   [:div {:class "row"}
-   (map (fn [review] (display-review review)) reviews)])
+    (map (fn [review] (display-review review)) reviews)])
 
 (defn index [reviews]
   (layout/common "Oakland Bloody Mary"
@@ -26,18 +26,27 @@
         [:h1 (h (:title review))]
         [:p (h (:story review))]]]))
 
-(defn form-group [name label field]
+(defn form-group [name text field]
   [:div {:class "form-group"}
-    (form/label {:class "col-sm-2 control-label"} name label)
+    (label {:class "col-sm-2 control-label"} name text)
     [:div {:class "col-sm-10"} field ]])
 
-(defn form-field [name label]
-  (form-group name label
-    (form/text-field {:class "form-control"} name)))
+(defn form-field [name text]
+  (form-group name text
+    (text-field {:class "form-control"} name)))
 
-(defn form-area [name label]
-  (form-group name label
-    (form/text-area {:class "form-control" :rows "10"} name)))
+(defn form-radio-button [name score]
+  (label {:class "checkbox-inline"} name
+    (radio-button {:id (str name "_" score) :name name :value score} name)))
+
+(defn form-radio-group [name text]
+  [:div {:class "form-group"}
+    (label {:class "col-sm-2 control-label"} name text)
+    (map #(form-radio-button name %) [1 2 3 4 5])])
+
+(defn form-area [name text]
+  (form-group name text
+    (text-area {:class "form-control" :rows "10"} name)))
 
 (defn review-form []
   [:div {:class "row"}
@@ -46,12 +55,17 @@
         [:div {:class "panel-heading"}
           [:h3 {:class "panel-title"} "Post a Review"]]
       [:div {:class "panel-body"}
-        (form/form-to {:class "form-horizontal"} [:post "/"]
+        (form-to {:class "form-horizontal"} [:post "/"]
           (form-field "title" "Title")
           (form-field "venue" "Venue")
           (form-field "photo_url" "Photo")
+          (form-radio-group "rim_score" "Rim")
+          (form-radio-group "garnish_score" "Garnish")
+          (form-radio-group "spice_score" "Spice")
+          (form-radio-group "booze_score" "Booze")
+          (form-radio-group "mouthfeel_score" "Mouthfeel")
           (form-area "story" "Story")
-          (form/submit-button {:class "btn btn-lg btn-success pull-right"} "Submit"))
+          (submit-button {:class "btn btn-lg btn-success pull-right"} "Submit"))
         [:div {:class "clearfix"}]]]]
     [:div {:class "col-md-6"}
       [:img {:src "https://s3.amazonaws.com/bloody-mary/submit.jpeg" :class "img-rounded"}]]])

@@ -16,15 +16,21 @@
         [:id :serial "PRIMARY KEY"]
         [:title :varchar "NOT NULL"]
         [:venue :varchar "NOT NULL"]
+        [:rim_score :integer "NOT NULL"]
+        [:garnish_score :integer "NOT NULL"]
+        [:spice_score :integer "NOT NULL"]
+        [:booze_score :integer "NOT NULL"]
+        [:mouthfeel_score :integer "NOT NULL"]
         [:slug :varchar "NOT NULL UNIQUE"]
         [:photo_url :varchar "NOT NULL"]
         [:story :text "NOT NULL"]
         [:created_at :timestamp "NOT NULL" "DEFAULT CURRENT_TIMESTAMP"]))
     (println " done")))
 
+
+; DROP TABLE
 ; (ns bloody-mary.models.migration
-;   (:require [clojure.java.jdbc :as sql]))
-; (defn database-url []
-;   (or (System/getenv "DATABASE_URL") "postgresql://localhost:5432/bloody-mary"))
-; (sql/with-connection (database-url)
-;   (sql/drop-table :reviews))
+;   (:require [clojure.java.jdbc :as sql]
+;             [bloody-mary.models.review :as review]))
+; (sql/db-do-commands review/spec
+;       (sql/drop-table-ddl :reviews))

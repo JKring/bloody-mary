@@ -3,3 +3,29 @@ q
 quit
 quite
 quit
+(:require [clojure.java.jdbc :as sql]
+          [bloody-mary.models.review :as review]))
+(sql/db-do-commands review/spec (sql/drop-table-ddl :reviews))
+(ns bloody-mary.models.migration
+  (:require [clojure.java.jdbc :as sql]
+            [bloody-mary.models.review :as review]))
+(sql/db-do-commands review/spec
+      (sql/drop-table-ddl :reviews))
+exit
+(+ 1 2)
+(map inc [1 2 3 4 5])
+exit
+(integer "1")
+(int "1")
+(Integer "1")
+(Integer."1")
+(class (Integer."1"))
+exit
+(int 1)
+(int "1")
+(char "1")
+(read-string "1")
+(class (read-string "1"))
+(int (read-string "1"))
+(class (int (read-string "1")))
+exit
