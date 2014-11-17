@@ -9,6 +9,10 @@
     [:meta {:charset "utf-8"}]
     [:meta {:http-equiv "X-UA-Compatible" :content "IE=edge,chrome=1"}]
     [:meta {:name "viewport" :content "width=device-width, initial-scale=1, maximum-scale=1"}]
+    [:meta {:name "description" :content "On a lifelong journey to find the best Bloody Mary in Oakland."}]
+    [:meta {:name "keywords"
+      :content (str title ",Bloody Mary,Oakland,Best Bloody Mary in Oakland,Bloody Mary Review")}]
+    [:meta {:name="author" :content "Jake Kring"}]
     [:title title]
     (include-css "/base.css")
     (include-css "/bootstrap.min.css")
