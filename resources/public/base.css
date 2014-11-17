@@ -88,3 +88,19 @@ img.mary:hover {
 .footer p a span {
   font-size:24px;
 }
+
+@media (max-width: 768px) {
+  h4, h5 {
+    text-align: center;
+  }
+
+  .percent-score-holder {
+    margin: auto;
+    max-width: 380px;
+    height: 90px;
+  }
+
+  .img-responsive {
+    margin: 20px auto;
+  }
+}
