@@ -1,6 +1,23 @@
+#navbar {
+  height:100px;
+}
+
+.simple-logo {
+  padding-top:10px;
+  margin:auto;
+  text-align: center;
+}
+
 #content {
-  padding-top: 60px;
+  padding-top: 20px;
   min-height:1000px;
+}
+
+#grid-btn {
+  margin-top: 35px !important;
+  background:#fafafa !important;
+  border:2px solid #eee;
+  color:black;
 }
 
 .logo {
@@ -75,6 +92,7 @@ img.mary:hover {
 }
 
 .footer {
+  border-top:2px solid #eee;
   width:100%;
   padding:20px;
   background: #fafafa;
@@ -89,7 +107,13 @@ img.mary:hover {
   font-size:24px;
 }
 
+@media (min-width: 769px) {
+  .simple-logo { display: none; }
+}
+
 @media (max-width: 768px) {
+  #grid-btn, .navbar-brand { display: none; }
+
   h4, h5 {
     text-align: center;
   }

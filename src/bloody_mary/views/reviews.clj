@@ -37,5 +37,5 @@
         (cards/all review)]]))
 
 (defn submit []
-  (layout/common "Oakland Bloody Mary"
+  (layout/common "Submit a Bloody Mary"
     (forms/create-review)))

@@ -19,11 +19,23 @@
     (include-css "http://fonts.googleapis.com/css?family=Arvo")
     (javascript-tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js")]
    [:body
-    [:div {:class "navbar"}
+    [:div {:id "navbar" :class "navbar"}
       [:div {:class "container"}
         [:div {:class "navbar-header"}
+          [:div {:class "simple-logo" }
+            [:a {:href "/"}
+              [:img {:src "../simple-logo.png" }]]]
           [:a {:class "navbar-brand" :href "/"}
-          [:img { :class "logo" :src "../logo.png"}]]]]]
+            [:img { :class "logo" :src "../logo.png"}]]]
+        (if (not (= title "Oakland Bloody Mary"))
+        [:ul {:class "nav navbar-nav navbar-right"}
+          [:li
+            [:a {
+              :id "grid-btn"
+              :type "button"
+              :href "/"
+              :class "btn btn-default navbar-btn navbar-right" }
+                [:span {:class "glyphicon glyphicon-th" :aria-hidden "true"}]]]])]]
     [:div {:id "content" :class "container"} body]
     [:div {:class "footer"}
       [:p
