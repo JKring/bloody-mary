@@ -17,7 +17,13 @@
       (string/replace input " " "-"))
   #"[^a-z/-]" ""))
 
-(defn create [title venue photo_url story rim_score garnish_score spice_score booze_score mouthfeel_score]
+(defn create [title venue photo_url story score_card]
   (sql/insert! spec :reviews
-    [:title :venue :slug :photo_url :story :rim_score :garnish_score :spice_score :booze_score :mouthfeel_score]
-    [title venue (slugify venue) photo_url story rim_score garnish_score spice_score booze_score mouthfeel_score]))
+    [ :title :venue :slug :photo_url :story
+      :rim_score :garnish_score :spice_score :booze_score :mouthfeel_score ]
+    [ title venue (slugify venue) photo_url story
+      (int (read-string (:rim_score score_card)))
+      (int (read-string (:garnish_score score_card)))
+      (int (read-string (:spice_score score_card)))
+      (int (read-string (:booze_score score_card)))
+      (int (read-string (:mouthfeel_score score_card)))]))

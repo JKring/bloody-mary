@@ -5,13 +5,8 @@
             [bloody-mary.views.reviews :as view]
             [bloody-mary.models.review :as model]))
 
-(defn create [title venue photo_url story rim_score garnish_score spice_score booze_score mouthfeel_score]
-  (model/create title venue photo_url story
-    (int (read-string rim_score))
-    (int (read-string garnish_score))
-    (int (read-string spice_score))
-    (int (read-string booze_score))
-    (int (read-string mouthfeel_score)))
+(defn create [title venue photo_url story score_card]
+  (model/create title venue photo_url story score_card)
   (ring/redirect "/"))
 
 (defn index []
@@ -26,6 +21,6 @@
 (defroutes routes
   (GET  "/" [] (index))
   (GET  "/submit" [] (submit))
-  (POST "/" [title venue photo_url story rim_score garnish_score spice_score booze_score mouthfeel_score]
-    (create title venue photo_url story rim_score garnish_score spice_score booze_score mouthfeel_score))
+  (POST "/" [title venue photo_url story score_card]
+    (create title venue photo_url story score_card))
   (GET ["/:slug"] [slug] (show slug)))
