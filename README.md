@@ -1,6 +1,5 @@
 # Oakland Bloody Mary
 
-
 ### Start Postrgres
 
 `postgres -D /usr/local/var/postgres/data`
