@@ -34,3 +34,10 @@ exit
 (str "dog )
 (str "dog" "cat" "something")
 exit
+DROP TABLE
+(ns bloody-mary.models.migration
+  (:require [clojure.java.jdbc :as sql]
+            [bloody-mary.models.review :as review]))
+(sql/db-do-commands review/spec
+      (sql/drop-table-ddl :reviews))
+exit
