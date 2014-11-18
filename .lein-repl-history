@@ -29,3 +29,8 @@ exit
 (int (read-string "1"))
 (class (int (read-string "1")))
 exit
+(+ 1 2)
+(map inc [1 2])
+(str "dog )
+(str "dog" "cat" "something")
+exit
