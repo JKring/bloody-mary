@@ -16,8 +16,7 @@
     [:title title]
     (include-css "/base.css")
     (include-css "/bootstrap.min.css")
-    (include-css "http://fonts.googleapis.com/css?family=Arvo")
-    (javascript-tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js")]
+    (include-css "http://fonts.googleapis.com/css?family=Arvo")]
    [:body
     [:div {:id "navbar" :class "navbar"}
       [:div {:class "container"}

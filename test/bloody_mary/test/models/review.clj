@@ -2,8 +2,12 @@
   (:require [clojure.test :refer :all]
             [bloody-mary.models.review :refer :all]))
 
+(deftest review
+  (testing "slugify"
+    (is (= "this-is-a-slug" (slugify "This 1is a @Slug!")))))
+
+
 ; Not sure how to mock the database interface...
-; (deftest review
 ;   (testing "addition"
 ;     (is (= (1) (
 ;       create
@@ -17,3 +21,5 @@
 ;         :spice_score     "3"
 ;         :booze_score     "4"
 ;         :mouthfeel_score "5" })))))
+
+

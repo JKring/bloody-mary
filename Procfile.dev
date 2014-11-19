@@ -1,0 +1,2 @@
+pg: postgres -D /usr/local/var/postgres/data
+web: lein run -m bloody-mary.web
