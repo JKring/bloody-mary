@@ -14,10 +14,19 @@
 }
 
 #grid-btn {
-  margin-top: 35px !important;
-  background:#fafafa !important;
+  margin-top: 28px !important;
+  background:white !important;
+  font-size: 35px;
+  border:2px solid white;
+}
+
+#grid-btn:hover {
   border:2px solid #eee;
-  color:black;
+}
+
+#grid-btn:active,#grid-btn.active{
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
 }
 
 .logo {
